@@ -40,7 +40,7 @@ public class UserServiceImplements implements UserDetailsService {
     }
 
 
-    private Boolean signupUser(UserInfoDto userInfoDto){
+    public Boolean signupUser(UserInfoDto userInfoDto){
         UserInfo existUser = userRepository.findByUsername(userInfoDto.getUserName());
 
         if(existUser != null){

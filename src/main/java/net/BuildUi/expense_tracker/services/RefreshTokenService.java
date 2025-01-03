@@ -7,7 +7,9 @@ import net.BuildUi.expense_tracker.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.time.Instant;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -33,5 +35,9 @@ public class RefreshTokenService {
             throw new RuntimeException(token.getToken() + " Token has expired. Please Login again..");
         }
         return token;
+    }
+
+    private Optional<RefreshToken> findByToken(String token){
+        return refreshTokenRepository.findByToken(token);
     }
 }
